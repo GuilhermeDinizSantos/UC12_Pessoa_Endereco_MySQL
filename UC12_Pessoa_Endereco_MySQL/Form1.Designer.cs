@@ -42,9 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.radioButtonMASCULINO = new System.Windows.Forms.RadioButton();
-            this.radioButtonFEMININO = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -58,8 +55,11 @@
             this.textBoxCIDADE = new System.Windows.Forms.TextBox();
             this.textBoxLOGRADOURO = new System.Windows.Forms.TextBox();
             this.buttonCADASTRAR = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.radioButtonMASCULINO = new System.Windows.Forms.RadioButton();
+            this.radioButtonFEMININO = new System.Windows.Forms.RadioButton();
+            this.dataGridViewGENERO = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGENERO)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNOME
@@ -180,39 +180,6 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Etnia:";
             // 
-            // radioButtonMASCULINO
-            // 
-            this.radioButtonMASCULINO.AutoSize = true;
-            this.radioButtonMASCULINO.Location = new System.Drawing.Point(3, 3);
-            this.radioButtonMASCULINO.Name = "radioButtonMASCULINO";
-            this.radioButtonMASCULINO.Size = new System.Drawing.Size(73, 17);
-            this.radioButtonMASCULINO.TabIndex = 7;
-            this.radioButtonMASCULINO.TabStop = true;
-            this.radioButtonMASCULINO.Text = "Masculino";
-            this.radioButtonMASCULINO.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonFEMININO
-            // 
-            this.radioButtonFEMININO.AutoSize = true;
-            this.radioButtonFEMININO.Location = new System.Drawing.Point(105, 3);
-            this.radioButtonFEMININO.Name = "radioButtonFEMININO";
-            this.radioButtonFEMININO.Size = new System.Drawing.Size(67, 17);
-            this.radioButtonFEMININO.TabIndex = 8;
-            this.radioButtonFEMININO.TabStop = true;
-            this.radioButtonFEMININO.Text = "Feminino";
-            this.radioButtonFEMININO.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.radioButtonFEMININO);
-            this.panel1.Controls.Add(this.radioButtonMASCULINO);
-            this.panel1.Location = new System.Drawing.Point(342, 136);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 29);
-            this.panel1.TabIndex = 16;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -236,7 +203,7 @@
             this.panel2.Controls.Add(this.textBoxBAIRRO);
             this.panel2.Controls.Add(this.textBoxCIDADE);
             this.panel2.Controls.Add(this.textBoxLOGRADOURO);
-            this.panel2.Location = new System.Drawing.Point(245, 172);
+            this.panel2.Location = new System.Drawing.Point(245, 188);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(297, 166);
             this.panel2.TabIndex = 18;
@@ -387,16 +354,49 @@
             this.buttonCADASTRAR.TabIndex = 19;
             this.buttonCADASTRAR.Text = "Cadastrar";
             this.buttonCADASTRAR.UseVisualStyleBackColor = true;
+            this.buttonCADASTRAR.Click += new System.EventHandler(this.buttonCADASTRAR_Click);
+            // 
+            // radioButtonMASCULINO
+            // 
+            this.radioButtonMASCULINO.AutoSize = true;
+            this.radioButtonMASCULINO.Location = new System.Drawing.Point(353, 139);
+            this.radioButtonMASCULINO.Name = "radioButtonMASCULINO";
+            this.radioButtonMASCULINO.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonMASCULINO.TabIndex = 7;
+            this.radioButtonMASCULINO.TabStop = true;
+            this.radioButtonMASCULINO.Text = "Masculino";
+            this.radioButtonMASCULINO.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonFEMININO
+            // 
+            this.radioButtonFEMININO.AutoSize = true;
+            this.radioButtonFEMININO.Location = new System.Drawing.Point(469, 139);
+            this.radioButtonFEMININO.Name = "radioButtonFEMININO";
+            this.radioButtonFEMININO.Size = new System.Drawing.Size(67, 17);
+            this.radioButtonFEMININO.TabIndex = 8;
+            this.radioButtonFEMININO.TabStop = true;
+            this.radioButtonFEMININO.Text = "Feminino";
+            this.radioButtonFEMININO.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewGENERO
+            // 
+            this.dataGridViewGENERO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGENERO.Location = new System.Drawing.Point(342, 136);
+            this.dataGridViewGENERO.Name = "dataGridViewGENERO";
+            this.dataGridViewGENERO.Size = new System.Drawing.Size(200, 31);
+            this.dataGridViewGENERO.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 351);
+            this.ClientSize = new System.Drawing.Size(559, 372);
+            this.Controls.Add(this.radioButtonMASCULINO);
+            this.Controls.Add(this.radioButtonFEMININO);
             this.Controls.Add(this.buttonCADASTRAR);
+            this.Controls.Add(this.dataGridViewGENERO);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -413,10 +413,9 @@
             this.Controls.Add(this.textBoxNOME);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGENERO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,9 +437,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton radioButtonMASCULINO;
-        private System.Windows.Forms.RadioButton radioButtonFEMININO;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label13;
@@ -454,6 +450,9 @@
         private System.Windows.Forms.TextBox textBoxCIDADE;
         private System.Windows.Forms.TextBox textBoxLOGRADOURO;
         private System.Windows.Forms.Button buttonCADASTRAR;
+        private System.Windows.Forms.RadioButton radioButtonFEMININO;
+        private System.Windows.Forms.RadioButton radioButtonMASCULINO;
+        private System.Windows.Forms.DataGridView dataGridViewGENERO;
     }
 }
 
