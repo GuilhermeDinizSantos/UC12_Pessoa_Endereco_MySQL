@@ -44,8 +44,15 @@ namespace UC12_Pessoa_Endereco_MySQL
             try
             {
                 conexao.Open();
-                comando.CommandText = "INSERT INTO tbl_pessoa(nome, sobrenome, nome_social, rg, cpf, data_nasc, etnia, genero) VALUES ('" + textBoxNOME.Text + "', '" + textBoxSOBRENOME.Text + "', '" + textBoxNOMESOCIAL.Text + "', '" + textBoxRG.Text + "', '" + textBoxCPF.Text + "', '" + dateTimePickerNASCIMENTO.Text + "', '" + comboBoxETNIA.SelectedItem + "', '" + dataGridViewGENERO.ProductVersion + "');";
-                comando.ExecuteNonQuery();
+                comando.CommandText = "SELECT MAX(id) FROM tbl_endereco;";
+                MySqlDataReader readerID = comando.ExecuteReader();
+
+                string ultimoID;
+                if (readerID.Read())
+                {
+                    ultimoID = readerID.GetString(0);
+                    //ultimoID = readerID;
+                }
             }
             catch (Exception error)
             {
