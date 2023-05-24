@@ -58,8 +58,11 @@
             this.radioButtonMASCULINO = new System.Windows.Forms.RadioButton();
             this.radioButtonFEMININO = new System.Windows.Forms.RadioButton();
             this.dataGridViewGENERO = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dataGridViewPESSOA = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGENERO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPESSOA)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNOME
@@ -386,11 +389,21 @@
             this.dataGridViewGENERO.Size = new System.Drawing.Size(200, 31);
             this.dataGridViewGENERO.TabIndex = 21;
             // 
+            // dataGridViewPESSOA
+            // 
+            this.dataGridViewPESSOA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPESSOA.Location = new System.Drawing.Point(573, 39);
+            this.dataGridViewPESSOA.Name = "dataGridViewPESSOA";
+            this.dataGridViewPESSOA.Size = new System.Drawing.Size(334, 315);
+            this.dataGridViewPESSOA.TabIndex = 22;
+            this.dataGridViewPESSOA.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 372);
+            this.ClientSize = new System.Drawing.Size(919, 367);
+            this.Controls.Add(this.dataGridViewPESSOA);
             this.Controls.Add(this.radioButtonMASCULINO);
             this.Controls.Add(this.radioButtonFEMININO);
             this.Controls.Add(this.buttonCADASTRAR);
@@ -416,6 +429,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGENERO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPESSOA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,6 +467,8 @@
         private System.Windows.Forms.RadioButton radioButtonFEMININO;
         private System.Windows.Forms.RadioButton radioButtonMASCULINO;
         private System.Windows.Forms.DataGridView dataGridViewGENERO;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridView dataGridViewPESSOA;
     }
 }
 
