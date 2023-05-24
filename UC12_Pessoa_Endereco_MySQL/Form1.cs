@@ -34,7 +34,7 @@ namespace UC12_Pessoa_Endereco_MySQL
             try
             {
                 conexao.Open();
-                comando.CommandText = "SELECT nome, cpf, logradouro, estado FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
+                comando.CommandText = "SELECT * FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
 
                 MySqlDataAdapter adaptadorPRODUTOS = new MySqlDataAdapter(comando);
 
@@ -46,6 +46,14 @@ namespace UC12_Pessoa_Endereco_MySQL
                 dataGridViewPESSOA.Columns["cpf"].HeaderText = "CPF";
                 dataGridViewPESSOA.Columns["logradouro"].HeaderText = "Logradouro";
                 dataGridViewPESSOA.Columns["estado"].HeaderText = "Estado";
+                dataGridViewPESSOA.Columns["nome_social"].HeaderText = "Nome Social";
+                dataGridViewPESSOA.Columns["rg"].HeaderText = "RG";
+                dataGridViewPESSOA.Columns["data_nasc"].HeaderText = "Data de Nascimento";
+                dataGridViewPESSOA.Columns["etnia"].HeaderText = "Etnia";
+                dataGridViewPESSOA.Columns["genero"].HeaderText = "Gênero";
+                dataGridViewPESSOA.Columns["bairro"].HeaderText = "Bairro";
+                dataGridViewPESSOA.Columns["cidade"].HeaderText = "Cidade";
+                dataGridViewPESSOA.Columns["uf"].HeaderText = "UF";
             }
             catch (Exception erro_mysql)
             {
@@ -120,6 +128,25 @@ namespace UC12_Pessoa_Endereco_MySQL
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridViewPESSOA_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxNOME.Text = dataGridViewPESSOA.CurrentRow.Cells[0].Value.ToString();
+            textBoxSOBRENOME.Text = dataGridViewPESSOA.CurrentRow.Cells[1].Value.ToString();
+            textBoxNOMESOCIAL.Text = dataGridViewPESSOA.CurrentRow.Cells[2].Value.ToString();
+            textBoxRG.Text = dataGridViewPESSOA.CurrentRow.Cells[3].Value.ToString();
+            textBoxCPF.Text = dataGridViewPESSOA.CurrentRow.Cells[4].Value.ToString();
+            textBoxLOGRADOURO.Text = dataGridViewPESSOA.CurrentRow.Cells[5].Value.ToString();
+            textBoxCIDADE.Text = dataGridViewPESSOA.CurrentRow.Cells[6].Value.ToString();
+            textBoxBAIRRO.Text = dataGridViewPESSOA.CurrentRow.Cells[7].Value.ToString();
+            comboBoxESTADO.SelectedIndex = int.Parse(dataGridViewPESSOA.CurrentRow.Cells[8].Value.ToString());
+            comboBoxETNIA.SelectedIndex = int.Parse(dataGridViewPESSOA.CurrentRow.Cells[9].Value.ToString());
+            genero = dataGridViewPESSOA.CurrentRow.Cells[10].Value.ToString();
+            comboBoxUF.SelectedIndex = int.Parse(dataGridViewPESSOA.CurrentRow.Cells[11].Value.ToString());
+
+
+            //dataGridViewPRODUTOS.CurrentRow.Cells[3].Value.ToString().Replace(".", ",");
         }
     }
 }

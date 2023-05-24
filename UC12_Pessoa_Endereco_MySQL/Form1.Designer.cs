@@ -392,17 +392,18 @@
             // dataGridViewPESSOA
             // 
             this.dataGridViewPESSOA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPESSOA.Location = new System.Drawing.Point(573, 39);
+            this.dataGridViewPESSOA.Location = new System.Drawing.Point(548, 40);
             this.dataGridViewPESSOA.Name = "dataGridViewPESSOA";
-            this.dataGridViewPESSOA.Size = new System.Drawing.Size(334, 315);
+            this.dataGridViewPESSOA.Size = new System.Drawing.Size(530, 315);
             this.dataGridViewPESSOA.TabIndex = 22;
             this.dataGridViewPESSOA.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewPESSOA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewPESSOA_MouseClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 367);
+            this.ClientSize = new System.Drawing.Size(1086, 367);
             this.Controls.Add(this.dataGridViewPESSOA);
             this.Controls.Add(this.radioButtonMASCULINO);
             this.Controls.Add(this.radioButtonFEMININO);
