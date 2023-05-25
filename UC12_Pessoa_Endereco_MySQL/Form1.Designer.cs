@@ -57,12 +57,12 @@
             this.buttonCADASTRAR = new System.Windows.Forms.Button();
             this.radioButtonMASCULINO = new System.Windows.Forms.RadioButton();
             this.radioButtonFEMININO = new System.Windows.Forms.RadioButton();
-            this.dataGridViewGENERO = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dataGridViewPESSOA = new System.Windows.Forms.DataGridView();
+            this.groupBoxGENERO = new System.Windows.Forms.GroupBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGENERO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPESSOA)).BeginInit();
+            this.groupBoxGENERO.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxNOME
@@ -362,32 +362,26 @@
             // radioButtonMASCULINO
             // 
             this.radioButtonMASCULINO.AutoSize = true;
-            this.radioButtonMASCULINO.Location = new System.Drawing.Point(353, 139);
+            this.radioButtonMASCULINO.Location = new System.Drawing.Point(6, 9);
             this.radioButtonMASCULINO.Name = "radioButtonMASCULINO";
             this.radioButtonMASCULINO.Size = new System.Drawing.Size(73, 17);
             this.radioButtonMASCULINO.TabIndex = 7;
             this.radioButtonMASCULINO.TabStop = true;
             this.radioButtonMASCULINO.Text = "Masculino";
             this.radioButtonMASCULINO.UseVisualStyleBackColor = true;
+            this.radioButtonMASCULINO.CheckedChanged += new System.EventHandler(this.radioButtonMASCULINO_CheckedChanged);
             // 
             // radioButtonFEMININO
             // 
             this.radioButtonFEMININO.AutoSize = true;
-            this.radioButtonFEMININO.Location = new System.Drawing.Point(469, 139);
+            this.radioButtonFEMININO.Location = new System.Drawing.Point(121, 9);
             this.radioButtonFEMININO.Name = "radioButtonFEMININO";
             this.radioButtonFEMININO.Size = new System.Drawing.Size(67, 17);
             this.radioButtonFEMININO.TabIndex = 8;
             this.radioButtonFEMININO.TabStop = true;
             this.radioButtonFEMININO.Text = "Feminino";
             this.radioButtonFEMININO.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewGENERO
-            // 
-            this.dataGridViewGENERO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGENERO.Location = new System.Drawing.Point(342, 136);
-            this.dataGridViewGENERO.Name = "dataGridViewGENERO";
-            this.dataGridViewGENERO.Size = new System.Drawing.Size(200, 31);
-            this.dataGridViewGENERO.TabIndex = 21;
+            this.radioButtonFEMININO.CheckedChanged += new System.EventHandler(this.radioButtonFEMININO_CheckedChanged);
             // 
             // dataGridViewPESSOA
             // 
@@ -396,19 +390,26 @@
             this.dataGridViewPESSOA.Name = "dataGridViewPESSOA";
             this.dataGridViewPESSOA.Size = new System.Drawing.Size(530, 315);
             this.dataGridViewPESSOA.TabIndex = 22;
-            this.dataGridViewPESSOA.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewPESSOA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewPESSOA_MouseClick);
+            // 
+            // groupBoxGENERO
+            // 
+            this.groupBoxGENERO.Controls.Add(this.radioButtonMASCULINO);
+            this.groupBoxGENERO.Controls.Add(this.radioButtonFEMININO);
+            this.groupBoxGENERO.Location = new System.Drawing.Point(342, 136);
+            this.groupBoxGENERO.Name = "groupBoxGENERO";
+            this.groupBoxGENERO.Size = new System.Drawing.Size(200, 32);
+            this.groupBoxGENERO.TabIndex = 23;
+            this.groupBoxGENERO.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 367);
+            this.Controls.Add(this.groupBoxGENERO);
             this.Controls.Add(this.dataGridViewPESSOA);
-            this.Controls.Add(this.radioButtonMASCULINO);
-            this.Controls.Add(this.radioButtonFEMININO);
             this.Controls.Add(this.buttonCADASTRAR);
-            this.Controls.Add(this.dataGridViewGENERO);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -429,8 +430,9 @@
             this.Text = "Form1";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGENERO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPESSOA)).EndInit();
+            this.groupBoxGENERO.ResumeLayout(false);
+            this.groupBoxGENERO.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,9 +469,9 @@
         private System.Windows.Forms.Button buttonCADASTRAR;
         private System.Windows.Forms.RadioButton radioButtonFEMININO;
         private System.Windows.Forms.RadioButton radioButtonMASCULINO;
-        private System.Windows.Forms.DataGridView dataGridViewGENERO;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView dataGridViewPESSOA;
+        private System.Windows.Forms.GroupBox groupBoxGENERO;
     }
 }
 

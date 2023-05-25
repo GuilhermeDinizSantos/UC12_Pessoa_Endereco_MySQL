@@ -34,7 +34,7 @@ namespace UC12_Pessoa_Endereco_MySQL
             try
             {
                 conexao.Open();
-                comando.CommandText = "SELECT * FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
+                comando.CommandText = "SELECT logradouro, bairro, cidade, estado, uf, nome, sobrenome, nome_social, rg, cpf, data_nasc, etnia, genero, fk_endereco FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
 
                 MySqlDataAdapter adaptadorPRODUTOS = new MySqlDataAdapter(comando);
 
@@ -80,14 +80,6 @@ namespace UC12_Pessoa_Endereco_MySQL
             {
                 conexao.Close();
             }
-            if (radioButtonMASCULINO.Checked)
-            {
-                genero = "Masculino";
-            }
-            if (radioButtonFEMININO.Checked)
-            {
-                genero = "Feminino";
-            }
             try
             {
                 conexao.Open();
@@ -125,28 +117,46 @@ namespace UC12_Pessoa_Endereco_MySQL
             atualizar_dataGRID();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridViewPESSOA_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxNOME.Text = dataGridViewPESSOA.CurrentRow.Cells[0].Value.ToString();
-            textBoxSOBRENOME.Text = dataGridViewPESSOA.CurrentRow.Cells[1].Value.ToString();
-            textBoxNOMESOCIAL.Text = dataGridViewPESSOA.CurrentRow.Cells[2].Value.ToString();
-            textBoxRG.Text = dataGridViewPESSOA.CurrentRow.Cells[3].Value.ToString();
-            textBoxCPF.Text = dataGridViewPESSOA.CurrentRow.Cells[4].Value.ToString();
-            textBoxLOGRADOURO.Text = dataGridViewPESSOA.CurrentRow.Cells[5].Value.ToString();
-            textBoxCIDADE.Text = dataGridViewPESSOA.CurrentRow.Cells[6].Value.ToString();
-            textBoxBAIRRO.Text = dataGridViewPESSOA.CurrentRow.Cells[7].Value.ToString();
-            comboBoxESTADO.SelectedIndex = int.Parse(dataGridViewPESSOA.CurrentRow.Cells[8].Value.ToString());
-            comboBoxETNIA.SelectedIndex = int.Parse(dataGridViewPESSOA.CurrentRow.Cells[9].Value.ToString());
-            genero = dataGridViewPESSOA.CurrentRow.Cells[10].Value.ToString();
-            comboBoxUF.SelectedIndex = int.Parse(dataGridViewPESSOA.CurrentRow.Cells[11].Value.ToString());
+            textBoxLOGRADOURO.Text = dataGridViewPESSOA.CurrentRow.Cells[0].Value.ToString();
+            textBoxBAIRRO.Text = dataGridViewPESSOA.CurrentRow.Cells[1].Value.ToString();
+            textBoxCIDADE.Text = dataGridViewPESSOA.CurrentRow.Cells[2].Value.ToString();
+            comboBoxESTADO.Text = dataGridViewPESSOA.CurrentRow.Cells[3].Value.ToString();
+            comboBoxUF.Text = dataGridViewPESSOA.CurrentRow.Cells[4].Value.ToString();
+            textBoxNOME.Text = dataGridViewPESSOA.CurrentRow.Cells[5].Value.ToString();
+            textBoxSOBRENOME.Text = dataGridViewPESSOA.CurrentRow.Cells[6].Value.ToString();
+            textBoxNOMESOCIAL.Text = dataGridViewPESSOA.CurrentRow.Cells[7].Value.ToString();
+            textBoxRG.Text = dataGridViewPESSOA.CurrentRow.Cells[8].Value.ToString();
+            textBoxCPF.Text = dataGridViewPESSOA.CurrentRow.Cells[9].Value.ToString();
+            dateTimePickerNASCIMENTO.Text = dataGridViewPESSOA.CurrentRow.Cells[10].Value.ToString();
+            comboBoxETNIA.Text = dataGridViewPESSOA.CurrentRow.Cells[11].Value.ToString();
 
 
-            //dataGridViewPRODUTOS.CurrentRow.Cells[3].Value.ToString().Replace(".", ",");
+            if (dataGridViewPESSOA.CurrentRow.Cells[12].Value.ToString() == "Masculino")
+            {
+                radioButtonMASCULINO.Checked = true;
+            }
+            if (dataGridViewPESSOA.CurrentRow.Cells[12].Value.ToString() == "Feminino")
+            {
+                radioButtonFEMININO.Checked = true;
+            }
+        }
+
+        private void radioButtonMASCULINO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonMASCULINO.Checked)
+            {
+                genero = "Masculino";
+            }
+        }
+
+        private void radioButtonFEMININO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonFEMININO.Checked)
+            {
+                genero = "Feminino";
+            }
         }
     }
 }
