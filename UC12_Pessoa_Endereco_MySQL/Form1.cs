@@ -18,6 +18,8 @@ namespace UC12_Pessoa_Endereco_MySQL
         string servidor;
         MySqlConnection conexao;
         MySqlCommand comando;
+
+        string id_pessoa = "";
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace UC12_Pessoa_Endereco_MySQL
             try
             {
                 conexao.Open();
-                comando.CommandText = "SELECT logradouro, bairro, cidade, estado, uf, nome, sobrenome, nome_social, rg, cpf, data_nasc, etnia, genero, fk_endereco FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
+                comando.CommandText = "SELECT tbl_pessoa.id, logradouro, bairro, cidade, estado, uf, nome, sobrenome, nome_social, rg, cpf, data_nasc, etnia, genero, fk_endereco FROM tbl_endereco INNER JOIN tbl_pessoa ON (tbl_endereco.id = fk_endereco);";
 
                 MySqlDataAdapter adaptadorPRODUTOS = new MySqlDataAdapter(comando);
 
@@ -42,6 +44,7 @@ namespace UC12_Pessoa_Endereco_MySQL
                 adaptadorPRODUTOS.Fill(tabelaPRODUTOS);
 
                 dataGridViewPESSOA.DataSource = tabelaPRODUTOS;
+                dataGridViewPESSOA.Columns["id"].HeaderText = "ID";
                 dataGridViewPESSOA.Columns["nome"].HeaderText = "Nome";
                 dataGridViewPESSOA.Columns["cpf"].HeaderText = "CPF";
                 dataGridViewPESSOA.Columns["logradouro"].HeaderText = "Logradouro";
@@ -119,25 +122,26 @@ namespace UC12_Pessoa_Endereco_MySQL
 
         private void dataGridViewPESSOA_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxLOGRADOURO.Text = dataGridViewPESSOA.CurrentRow.Cells[0].Value.ToString();
-            textBoxBAIRRO.Text = dataGridViewPESSOA.CurrentRow.Cells[1].Value.ToString();
-            textBoxCIDADE.Text = dataGridViewPESSOA.CurrentRow.Cells[2].Value.ToString();
-            comboBoxESTADO.Text = dataGridViewPESSOA.CurrentRow.Cells[3].Value.ToString();
-            comboBoxUF.Text = dataGridViewPESSOA.CurrentRow.Cells[4].Value.ToString();
-            textBoxNOME.Text = dataGridViewPESSOA.CurrentRow.Cells[5].Value.ToString();
-            textBoxSOBRENOME.Text = dataGridViewPESSOA.CurrentRow.Cells[6].Value.ToString();
-            textBoxNOMESOCIAL.Text = dataGridViewPESSOA.CurrentRow.Cells[7].Value.ToString();
-            textBoxRG.Text = dataGridViewPESSOA.CurrentRow.Cells[8].Value.ToString();
-            textBoxCPF.Text = dataGridViewPESSOA.CurrentRow.Cells[9].Value.ToString();
-            dateTimePickerNASCIMENTO.Text = dataGridViewPESSOA.CurrentRow.Cells[10].Value.ToString();
-            comboBoxETNIA.Text = dataGridViewPESSOA.CurrentRow.Cells[11].Value.ToString();
+            id_pessoa = dataGridViewPESSOA.CurrentRow.Cells[0].Value.ToString();
+            textBoxLOGRADOURO.Text = dataGridViewPESSOA.CurrentRow.Cells[1].Value.ToString();
+            textBoxBAIRRO.Text = dataGridViewPESSOA.CurrentRow.Cells[2].Value.ToString();
+            textBoxCIDADE.Text = dataGridViewPESSOA.CurrentRow.Cells[3].Value.ToString();
+            comboBoxESTADO.Text = dataGridViewPESSOA.CurrentRow.Cells[4].Value.ToString();
+            comboBoxUF.Text = dataGridViewPESSOA.CurrentRow.Cells[5].Value.ToString();
+            textBoxNOME.Text = dataGridViewPESSOA.CurrentRow.Cells[6].Value.ToString();
+            textBoxSOBRENOME.Text = dataGridViewPESSOA.CurrentRow.Cells[7].Value.ToString();
+            textBoxNOMESOCIAL.Text = dataGridViewPESSOA.CurrentRow.Cells[8].Value.ToString();
+            textBoxRG.Text = dataGridViewPESSOA.CurrentRow.Cells[9].Value.ToString();
+            textBoxCPF.Text = dataGridViewPESSOA.CurrentRow.Cells[10].Value.ToString();
+            dateTimePickerNASCIMENTO.Text = dataGridViewPESSOA.CurrentRow.Cells[11].Value.ToString();
+            comboBoxETNIA.Text = dataGridViewPESSOA.CurrentRow.Cells[12].Value.ToString();
 
 
-            if (dataGridViewPESSOA.CurrentRow.Cells[12].Value.ToString() == "Masculino")
+            if (dataGridViewPESSOA.CurrentRow.Cells[13].Value.ToString() == "Masculino")
             {
                 radioButtonMASCULINO.Checked = true;
             }
-            if (dataGridViewPESSOA.CurrentRow.Cells[12].Value.ToString() == "Feminino")
+            if (dataGridViewPESSOA.CurrentRow.Cells[14].Value.ToString() == "Feminino")
             {
                 radioButtonFEMININO.Checked = true;
             }
@@ -156,6 +160,24 @@ namespace UC12_Pessoa_Endereco_MySQL
             if (radioButtonFEMININO.Checked)
             {
                 genero = "Feminino";
+            }
+        }
+
+        private void buttonEXCLUIR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conexao.Open();
+                comando.CommandText = "DELETE FROM tbl_pessoa WHERE id = " + id_pessoa + ";";
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
     }

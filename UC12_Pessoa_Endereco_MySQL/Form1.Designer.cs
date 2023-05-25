@@ -60,6 +60,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dataGridViewPESSOA = new System.Windows.Forms.DataGridView();
             this.groupBoxGENERO = new System.Windows.Forms.GroupBox();
+            this.buttonEXCLUIR = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPESSOA)).BeginInit();
             this.groupBoxGENERO.SuspendLayout();
@@ -402,11 +403,22 @@
             this.groupBoxGENERO.TabIndex = 23;
             this.groupBoxGENERO.TabStop = false;
             // 
+            // buttonEXCLUIR
+            // 
+            this.buttonEXCLUIR.Location = new System.Drawing.Point(16, 283);
+            this.buttonEXCLUIR.Name = "buttonEXCLUIR";
+            this.buttonEXCLUIR.Size = new System.Drawing.Size(186, 23);
+            this.buttonEXCLUIR.TabIndex = 24;
+            this.buttonEXCLUIR.Text = "Excluir";
+            this.buttonEXCLUIR.UseVisualStyleBackColor = true;
+            this.buttonEXCLUIR.Click += new System.EventHandler(this.buttonEXCLUIR_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 367);
+            this.Controls.Add(this.buttonEXCLUIR);
             this.Controls.Add(this.groupBoxGENERO);
             this.Controls.Add(this.dataGridViewPESSOA);
             this.Controls.Add(this.buttonCADASTRAR);
@@ -472,6 +484,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView dataGridViewPESSOA;
         private System.Windows.Forms.GroupBox groupBoxGENERO;
+        private System.Windows.Forms.Button buttonEXCLUIR;
     }
 }
 
