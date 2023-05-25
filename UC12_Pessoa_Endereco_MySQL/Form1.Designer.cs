@@ -61,6 +61,7 @@
             this.dataGridViewPESSOA = new System.Windows.Forms.DataGridView();
             this.groupBoxGENERO = new System.Windows.Forms.GroupBox();
             this.buttonEXCLUIR = new System.Windows.Forms.Button();
+            this.buttonALTERAR = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPESSOA)).BeginInit();
             this.groupBoxGENERO.SuspendLayout();
@@ -413,11 +414,22 @@
             this.buttonEXCLUIR.UseVisualStyleBackColor = true;
             this.buttonEXCLUIR.Click += new System.EventHandler(this.buttonEXCLUIR_Click);
             // 
+            // buttonALTERAR
+            // 
+            this.buttonALTERAR.Location = new System.Drawing.Point(16, 312);
+            this.buttonALTERAR.Name = "buttonALTERAR";
+            this.buttonALTERAR.Size = new System.Drawing.Size(186, 23);
+            this.buttonALTERAR.TabIndex = 25;
+            this.buttonALTERAR.Text = "Alterar";
+            this.buttonALTERAR.UseVisualStyleBackColor = true;
+            this.buttonALTERAR.Click += new System.EventHandler(this.buttonALTERAR_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 367);
+            this.Controls.Add(this.buttonALTERAR);
             this.Controls.Add(this.buttonEXCLUIR);
             this.Controls.Add(this.groupBoxGENERO);
             this.Controls.Add(this.dataGridViewPESSOA);
@@ -485,6 +497,7 @@
         private System.Windows.Forms.DataGridView dataGridViewPESSOA;
         private System.Windows.Forms.GroupBox groupBoxGENERO;
         private System.Windows.Forms.Button buttonEXCLUIR;
+        private System.Windows.Forms.Button buttonALTERAR;
     }
 }
 

@@ -20,6 +20,7 @@ namespace UC12_Pessoa_Endereco_MySQL
         MySqlCommand comando;
 
         string id_pessoa = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -140,8 +141,9 @@ namespace UC12_Pessoa_Endereco_MySQL
             if (dataGridViewPESSOA.CurrentRow.Cells[13].Value.ToString() == "Masculino")
             {
                 radioButtonMASCULINO.Checked = true;
+
             }
-            if (dataGridViewPESSOA.CurrentRow.Cells[14].Value.ToString() == "Feminino")
+            if (dataGridViewPESSOA.CurrentRow.Cells[13].Value.ToString() == "Feminino")
             {
                 radioButtonFEMININO.Checked = true;
             }
@@ -174,6 +176,26 @@ namespace UC12_Pessoa_Endereco_MySQL
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            atualizar_dataGRID();
+        }
+
+        private void buttonALTERAR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conexao.Open();
+                comando.CommandText = "UPDATE tbl_pessoa SET nome = '" + textBoxNOME.Text + "', sobrenome = '" + textBoxSOBRENOME.Text + "', nome_social = '" + textBoxNOMESOCIAL.Text + "', rg = '" + textBoxRG.Text + "', cpf = '" + textBoxCPF.Text + "', data_nasc = '" + dateTimePickerNASCIMENTO.Text + "', etnia = '" + comboBoxETNIA.Text + "', genero = '" +  + "';";
+                comando.CommandText = "UPDATE tbl_endereco SET logradouro = '" + textBoxLOGRADOURO.Text + "', bairro = '" + textBoxBAIRRO.Text + "', cidade = '" + textBoxCIDADE.Text + "', estado = '" + comboBoxESTADO.Text + "', uf = '" + comboBoxUF.Text + "';";
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro_mysql)
+            {
+                MessageBox.Show(erro_mysql.Message);
             }
             finally
             {
