@@ -179,6 +179,7 @@ namespace UC12_Pessoa_Endereco_MySQL
             {
                 conexao.Close();
             }
+            atualizar_dataGRID();
         }
     }
 }
